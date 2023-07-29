@@ -35,27 +35,27 @@ En primer lugar cargué la base de datos en MySQL esto me permitió a través de
 
 - El top 10 de las propiedades de mayor valor 
 
-![ScreenShot](data_mid_bootcamp_project_regression\MYSQL_Reports\Top_10.png)
+![ScreenShot](data_mid_bootcamp_project_regression/MYSQL_Reports/Top_10.png)
 
 - El precio promedio de las propiedades
 
-![ScreenShot](data_mid_bootcamp_project_regression\MYSQL_Reports\Average_price.png)
+![ScreenShot](data_mid_bootcamp_project_regression/MYSQL_Reports/Average_price.png)
 
 - El precio promedio de las propiedades en función a la cantidad de dormitorio
 
-![ScreenShot](data_mid_bootcamp_project_regression\MYSQL_Reports\Average_price_Bedrooms.png)
+![ScreenShot](data_mid_bootcamp_project_regression/MYSQL_Reports/Average_price_Bedrooms.png)
 
 - El precio promedio de las propiedades en función a la cantidad de baños
 
-![ScreenShot](data_mid_bootcamp_project_regression\MYSQL_Reports\Average_price_Bathrooms.png)
+![ScreenShot](data_mid_bootcamp_project_regression/MYSQL_Reports/Average_price_Bathrooms.png)
 
 - El precio promedio de las propiedades en función a la cantidad grado de conservación. 
 
-![ScreenShot](data_mid_bootcamp_project_regression\MYSQL_Reports\Average_price_Grade.png)
+![ScreenShot](data_mid_bootcamp_project_regression/MYSQL_Reports/Average_price_Grade.png)
 
 - El precio promedio de las propiedades en función las plantas. 
 
-![ScreenShot](data_mid_bootcamp_project_regression\MYSQL_Reports\Average_price_Floors.png)
+![ScreenShot](data_mid_bootcamp_project_regression/MYSQL_Reports/Average_price_Floors.png)
 
 Luego de ello procedí a realizar un análisis mas profundo utilizando Python junto con la libreria de Pandas, Nunpy, Matplolib.
 
@@ -72,7 +72,7 @@ Luego de ello procedí a realizar un análisis mas profundo utilizando Python ju
 
 Para conocer la correlaccion existente entre las distintas variable ejecuto un matriz de correlación con mapa de calor donde las correlaciones mas altas son de color rojo y las mas bajas de color azul.
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\correlation_1.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/correlation_1.png)
 
 Con el fin de tener una primera aproximación modelizó con los datos sin tratar, para ello utilizo cuatro modelos distintos:
 
@@ -92,11 +92,11 @@ Vemos que modelo que más se ajusta al tipo de datos que tenemos es la Regresió
 - Test size: 0.4, Adjusted R2: 0.7029707539506597
 
 Luego de esto ya con la información proporcionada por la Matriz de Correlación vemos que existe una correlación significativa con las siguientes variables 'sqft_living' con 'sqft_living15' (0.76) y 'sqft_lot' con 'sqft_lot15' (0.72), vemos que tambien existe una correlación fuerte entre 'sqft_living' y 'sqdt_above' pero como vamos a eliminar 'sqft_living' esto cambiará. Luego de analizados los datos sabemos que el dataframe esta acotado a dos años por lo que tambien elimino la variable año ya que no inside en el análisis.
-![ScreenShot](data_mid_bootcamp_project_regression\Images\correlation_2.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/correlation_2.png)
 
 Al contar con el Zipcode elimino las variables espaciales de Latitud y Longitud.
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\correlation_3.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/correlation_3.png)
 
 Vemos que la Matriz de Correlación mejora dando valores menos significativos.
 
@@ -132,13 +132,13 @@ El VIF nos proporcionará información acerca de la magnitud de la multicolineal
 
 Para llevar a cabo este análisis, volveremos al DataFrame original df y realizaremos una copia de los datos para trabajar en ella sin modificar los datos originales. Al obtener los valores del VIF para cada variable, podremos identificar aquellas con alta multicolinealidad y tomar decisiones informadas, como la eliminación o transformación de características, con el fin de mejorar la calidad del modelo.
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Vif_1.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Vif_1.png)
 
 Observamos que 'sqft_above' y'sqft_living' son las que tiene mayor magnitud de multicolinealidad es por ello que las eliminaremos junto con 'id' (ya que es una variable que no aporta valor unicamente identifica el inmueble) y año que al igual id no aportan valor porque tenemos un DataFrame acotado a un periodo muy corto (2 años).
 
 Resulta en un valor "inf" o infinito, significa que hay una alta multicolinealidad entre la variable en cuestión y al menos una de las otras variables independientes en el modelo. La multicolinealidad ocurre cuando dos o más variables independientes están altamente correlacionadas entre sí. Procedemos a eliminar 'sqft_living', 'id', 'anio', 'sqft_above'
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Vif_2.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Vif_2.png)
 
 ### Modelo 4
 
@@ -167,17 +167,17 @@ Aplicamos nuevamente los modelos propuestos y observamos nuevamente una mejora l
 
 Volvemos a a realizar los histogramas y los graficos de cajas y decidimos realizar el mismo tratamiento para las variables mas significativas ('bedrooms', 'bathrooms', 'sqft_lot', 'condition', 'grade', 'long', 'sqft_lot15')
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_bedroom.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_bedroom.png)
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_bathrooms.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_bathrooms.png)
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_lot.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_lot.png)
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_grade.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_grade.png)
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_long.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_long.png)
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_lot15.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_lot15.png)
 
 Procedemos a eliminar los outliers
 
@@ -229,19 +229,19 @@ Como parte del proceso de analisis he trabajando con la herramienta de Business 
 
 En la primera visualización, representé la distribución geográfica de los inmuebles de mayor valor en un mapa.
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Tableau_1.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Tableau_1.png)
 
  Se puede observar que la zona central concentra la mayor cantidad de inmuebles con valores promedio más altos.
 
 **Evolución de las ventas y cantidad de operaciones**
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Tableau_2.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Tableau_2.png)
 
 En el segundo gráfico, analicé la evolución de las ventas y la cantidad de operaciones a lo largo del tiempo. Descubrí que los meses con mayor actividad son los previos al verano, específicamente de abril a julio, donde no solo se realizan la mayoría de las transacciones, sino que también se alcanzan los valores promedio de ventas más altos.
 
 **Valor promedio de los inmuebles en base al año de contrucción y el precio promedio por cantidad de plantas**
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Tableau_5.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Tableau_5.png)
 
 El tercer gráfico muestra el valor promedio de los inmuebles en función del año de construcción, y también el precio promedio según la cantidad de plantas. Es interesante notar que el año 1933 muestra el precio promedio más alto de las viviendas, lo que sugiere que no siempre las propiedades más recientes son las mejor valoradas.
 
@@ -249,7 +249,7 @@ Del mismo modo, en el caso del número de plantas, se destaca que las propiedade
 
 **Valor promedio de los inmuebles en base a la cantidad de habitaciones y el precio promedio por cantidad de baños**
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Tableau_4.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Tableau_4.png)
 
 En el último gráfico, exploré el valor promedio de los inmuebles en función de la cantidad de habitaciones, así como el precio promedio según la cantidad de baños. Se destaca que las propiedades con 8 dormitorios son las mejor valoradas, con un promedio muy por encima de la media.
 
