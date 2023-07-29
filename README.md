@@ -154,7 +154,7 @@ Con el fin de obtener un modelo más optimo realizamos un tratamiento de los Out
 
 Aplicamos primer el tratamiento para nuestra variable objetivo 'price' y como la cantidad de valores fuera de los rangos intercuartilicos procedemos a eliminar esas filas. 
 
-![ScreenShot](data_mid_bootcamp_project_regression\Images\Box_1.png)
+![ScreenShot](data_mid_bootcamp_project_regression/Images/Box_1.png)
 
 ### Modelo 5
 
