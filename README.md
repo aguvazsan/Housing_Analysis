@@ -1,4 +1,4 @@
-# Mid Project - Proyecto de Análisis Inmobiliario
+# Proyecto de Análisis Inmobiliario
 
 ### Descripción del proyecto
 Este proyecto tiene como objetivo construir un modelo de aprendizaje automático para predecir los precios de venta de casas basado en una variedad de características que influyen en el valor de la propiedad.
